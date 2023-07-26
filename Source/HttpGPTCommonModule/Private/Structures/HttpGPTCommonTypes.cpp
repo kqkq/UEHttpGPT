@@ -20,5 +20,6 @@ void FHttpGPTCommonOptions::SetDefaults()
 	{
 		APIKey = Settings->CommonOptions.APIKey;
 		User = Settings->CommonOptions.User;
+		BaseUrl = Settings->CommonOptions.BaseUrl;
 	}
 }

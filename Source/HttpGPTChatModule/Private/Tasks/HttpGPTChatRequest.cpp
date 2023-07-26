@@ -86,7 +86,9 @@ bool UHttpGPTChatRequest::CanBindProgress() const
 
 FString UHttpGPTChatRequest::GetEndpointURL() const
 {
-	return FString::Format(TEXT("https://api.openai.com/{0}"), { UHttpGPTHelper::GetEndpointForModel(GetChatOptions().Model).ToString() });
+	FString base_url = GetCommonOptions().BaseUrl.ToString();
+	base_url.PathAppend(TEXT(""), 0);
+	return FString::Format(*(base_url + TEXT("{0}")), {UHttpGPTHelper::GetEndpointForModel(GetChatOptions().Model).ToString()});
 }
 
 const FHttpGPTChatOptions UHttpGPTChatRequest::GetChatOptions() const
@@ -321,9 +323,9 @@ void UHttpGPTChatRequest::DeserializeSingleResponse(const FString& Content)
 
 	Response.bSuccess = true;
 
-	Response.ID = *JsonResponse->GetStringField("id");
+	//Response.ID = *JsonResponse->GetStringField("id");
 	Response.Object = *JsonResponse->GetStringField("object");
-	Response.Created = JsonResponse->GetNumberField("created");
+	//Response.Created = JsonResponse->GetNumberField("created");
 
 	const TArray<TSharedPtr<FJsonValue>> ChoicesArr = JsonResponse->GetArrayField("choices");
 

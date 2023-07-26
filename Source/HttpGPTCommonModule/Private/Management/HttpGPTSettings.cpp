@@ -84,6 +84,7 @@ void UHttpGPTSettings::SetToDefaults()
 {
 	CommonOptions.APIKey = NAME_None;
 	CommonOptions.User = NAME_None;
+	CommonOptions.BaseUrl = TEXT("https://api.openai.com/");
 
 	ChatOptions.Model = EHttpGPTChatModel::gpt35turbo;
 	ChatOptions.MaxTokens = 2048;

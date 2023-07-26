@@ -30,6 +30,9 @@ struct HTTPGPTCOMMONMODULE_API FHttpGPTCommonOptions
 	GENERATED_BODY()
 
 	FHttpGPTCommonOptions();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "HttpGPT | Common", Meta = (DisplayName = "Base URL"))
+	FName BaseUrl;
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "HttpGPT | Common", Meta = (DisplayName = "API Key"))
 	FName APIKey;
